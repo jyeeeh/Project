@@ -43,4 +43,19 @@ public class MemberService {
     public void delete(Long id) {
         memberRepository.delete(id);
     }
+
+    //MemberEmail 가져오기
+    public MemberDTO findByMemberEmail(String loginEmail) {
+        return memberRepository.findByMemberEmail(loginEmail);
+    }
+
+    //수정하기
+    public boolean update(MemberDTO memberDTO) {
+        int updateResult = memberRepository.update(memberDTO);
+        if(updateResult>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

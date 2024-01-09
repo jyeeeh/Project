@@ -36,4 +36,14 @@ public class MemberRepository {
     public void delete(Long id) {
         sql.delete("Member.delete",id);
     }
+
+    //MemberEmail 가져오기
+    public MemberDTO findByMemberEmail(String loginEmail) {
+        return sql.selectOne("Member.findByMemberEmail", loginEmail);
+    }
+
+    //수정하기
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update",memberDTO);
+    }
 }
