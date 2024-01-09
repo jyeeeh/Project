@@ -5,6 +5,8 @@ import kr.co.chunjae.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -25,5 +27,10 @@ public class MemberService {
         }else{
             return false;
         }
+    }
+
+    //회원목록 조회
+    public List<MemberDTO> findMemberList() {
+        return memberRepository.findMemberList();
     }
 }

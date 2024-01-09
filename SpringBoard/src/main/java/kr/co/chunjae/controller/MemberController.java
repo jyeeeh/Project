@@ -4,12 +4,14 @@ import kr.co.chunjae.dto.MemberDTO;
 import kr.co.chunjae.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -59,6 +61,14 @@ public class MemberController {
             //session에 loginEmail 값 없으면 다시 login으로 이동
             return "login";
         }
+    }
+
+    //회원목록 조회
+    @GetMapping("/")
+    public String findMemberList(Model model){
+        List<MemberDTO> memberDTOList = memberService.findMemberList();
+        model.addAttribute("memberList",memberDTOList);
+        return "list";
     }
 
 
