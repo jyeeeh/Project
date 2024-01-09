@@ -27,4 +27,9 @@ public class BoardRepository {
     public BoardDTO findById(Long id) {
         return sql.selectOne("Board.findById",id);
     }
+
+    //조회수 증가
+    public void updateHits(Long id) {
+        sql.update("Board.updateHits",id);
+    }
 }

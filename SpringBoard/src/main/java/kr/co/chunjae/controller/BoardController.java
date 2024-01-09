@@ -46,6 +46,8 @@ public class BoardController {
     //게시물 id 값으로 게시물찾기
     @GetMapping
     public String findById(@RequestParam("id") Long id, Model model){
+        //조회수 증가
+        boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board",boardDTO);
         return "board/detail";

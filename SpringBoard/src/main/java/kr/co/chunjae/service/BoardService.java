@@ -27,4 +27,9 @@ public class BoardService {
     public BoardDTO findById(Long id) {
         return boardRepository.findById(id);
     }
+
+    //조회수 증가
+    public void updateHits(Long id) {
+        boardRepository.updateHits(id);
+    }
 }
