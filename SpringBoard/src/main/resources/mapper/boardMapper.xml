@@ -29,4 +29,10 @@
         SET boardHits = boardHits+1
         WHERE id=#{id}
     </update>
+
+    <!--삭제하기 -->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM boardTable
+        WHERE id=#{id}
+    </delete>
 </mapper>

@@ -32,4 +32,9 @@ public class BoardRepository {
     public void updateHits(Long id) {
         sql.update("Board.updateHits",id);
     }
+
+    //삭제하기
+    public void delete(Long id) {
+        sql.delete("Board.delete",id);
+    }
 }

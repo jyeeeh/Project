@@ -32,4 +32,9 @@ public class BoardService {
     public void updateHits(Long id) {
         boardRepository.updateHits(id);
     }
+
+    //삭제하기
+    public void delete(Long id) {
+        boardRepository.delete(id);
+    }
 }
