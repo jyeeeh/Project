@@ -8,10 +8,6 @@
     <button onclick="update()">내정보 수정</button>
     <button onclick="logout()">로그아웃</button><br>
 
-    <!-- 게시판 -->
-    <a href="/board/regist">글작성</a><br>
-    <a href="/board">글목록</a>
-
 </body>
 
 <script>

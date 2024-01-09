@@ -61,4 +61,20 @@ public class BoardController {
         return "redirect:/board/";
     }
 
+    //수정
+    //id값을 찾아서 boardDTO에 넣어준 Form 출력
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board",boardDTO);
+        return "board/update";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute BoardDTO boardDTO, Model model){
+        boardService.update(boardDTO);
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        model.addAttribute("board",dto);
+        return "board/detail";
+    }
+
 }

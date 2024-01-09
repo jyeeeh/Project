@@ -10,6 +10,9 @@
 	<a href="/member/login">로그인</a><br>
 	<a href="/member/">회원목록 조회</a><br>
 
+	<!-- 게시판 -->
+	<a href="/board/regist">글작성</a><br>
+	<a href="/board">글목록</a>
 
 </body>
 </html>

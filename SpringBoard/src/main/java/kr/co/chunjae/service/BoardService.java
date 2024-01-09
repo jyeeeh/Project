@@ -37,4 +37,9 @@ public class BoardService {
     public void delete(Long id) {
         boardRepository.delete(id);
     }
+
+    //수정하기
+    public void update(BoardDTO boardDTO) {
+        boardRepository.update(boardDTO);
+    }
 }

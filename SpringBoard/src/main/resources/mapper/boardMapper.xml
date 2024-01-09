@@ -35,4 +35,12 @@
         DELETE FROM boardTable
         WHERE id=#{id}
     </delete>
+
+    <!--수정하기-->
+    <update id="update" parameterType="board">
+        UPDATE boardTable
+        SET boardTitle=#{boardTitle}, boardContents=#{boardContents}
+        WHERE id=#{id}
+    </update>
+
 </mapper>

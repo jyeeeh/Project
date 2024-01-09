@@ -37,4 +37,9 @@ public class BoardRepository {
     public void delete(Long id) {
         sql.delete("Board.delete",id);
     }
+
+    //수정하기
+    public void update(BoardDTO boardDTO) {
+        sql.update("Board.update",boardDTO);
+    }
 }
