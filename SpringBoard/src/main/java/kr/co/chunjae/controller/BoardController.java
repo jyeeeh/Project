@@ -3,11 +3,12 @@ package kr.co.chunjae.controller;
 import kr.co.chunjae.dto.BoardDTO;
 import kr.co.chunjae.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -27,10 +28,29 @@ public class BoardController {
         int registResult = boardService.regist(boardDTO);
         if(registResult>0){
             //글 작성 성공
-            return "redirect:/board";
+            return "redirect:/board/";
         }else{
             //실패 시
-            return "regist";
+            return "board/regist";
         }
     }
+
+    //게시물 목록
+    @GetMapping("/")
+    public String findBoardListAll(Model model){
+        List<BoardDTO> boardDTOList = boardService.findBoardListAll();
+        model.addAttribute("boardList",boardDTOList);
+        return "board/list";
+    }
+
+    //게시물 id 값으로 게시물찾기
+    @GetMapping
+    public String findById(@RequestParam("id") Long id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board",boardDTO);
+        return "board/detail";
+    }
+
+
+
 }

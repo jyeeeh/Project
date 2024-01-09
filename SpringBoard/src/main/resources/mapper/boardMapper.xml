@@ -5,8 +5,21 @@
 <mapper namespace="Board">
     <!-- 글작성 -->
     <insert id="regist" parameterType="board">
-        insert into board_table(boardWriter, boardPass, boardTitle, boardContents)
-        values(#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
+        INSERT INTO boardTable(boardWriter, boardPass, boardTitle, boardContents)
+        VALUES(#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
     </insert>
 
+    <!--게시물 목록-->
+    <select id="findBoardListAll" resultType="board">
+        SELECT id,boardWriter,boardPass,boardTitle,boardContents,boardCreatedTime,boardHits,fileAttached
+        FROM boardTable
+        ORDER BY id DESC
+    </select>
+
+    <!--id값으로 찾기-->
+    <select id="findById" parameterType="Long" resultType="board">
+        SELECT id,boardWriter,boardPass,boardTitle,boardContents,boardCreatedTime,boardHits,fileAttached
+        FROM boardTable
+        WHERE id=#{id}
+    </select>
 </mapper>
