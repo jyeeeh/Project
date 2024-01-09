@@ -33,4 +33,9 @@ public class MemberService {
     public List<MemberDTO> findMemberList() {
         return memberRepository.findMemberList();
     }
+
+    //멤버 상세 조회
+    public MemberDTO findById(Long id) {
+        return memberRepository.findById(id);
+    }
 }

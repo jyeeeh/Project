@@ -5,18 +5,25 @@
 <mapper namespace="Member">
     <!--회원가입-->
     <insert id="regist" parameterType="member">
-        insert into member_table(memberEmail, memberPassword, memberName, memberAge, memberMobile)
-        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberMobile})
+        INSERT INTO member_table(memberEmail, memberPassword, memberName, memberAge, memberMobile)
+        VALUES (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberMobile})
     </insert>
 <!--  로그인 -->
     <select id="login" parameterType="member" resultType="member">
-        select id, memberEmail, memberPassword, memberName, memberAge, memberMobile
-        from member_table
-        where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
+        SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
+        FROM member_table
+        WHERE memberEmail=#{memberEmail} AND memberPassword=#{memberPassword}
     </select>
 
+    <!--회원목록 리스트-->
     <select id="findMemberList" resultType="member">
-        select id, memberEmail, memberPassword, memberName, memberAge, memberMobile
-        from member_table
+        SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
+        FROM member_table
+    </select>
+    <!-- 회원 id로 찾기 -->
+    <select id="findById" resultType="member" parameterType="Long">
+        SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
+        FROM member_table
+        WHERE id=#{id}
     </select>
 </mapper>

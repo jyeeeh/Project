@@ -26,4 +26,9 @@ public class MemberRepository {
     public List<MemberDTO> findMemberList() {
         return sql.selectList("Member.findMemberList");
     }
+
+    //멤버 상세 조회
+    public MemberDTO findById(Long id) {
+        return sql.selectOne("Member.findById",id);
+    }
 }

@@ -5,10 +5,7 @@ import kr.co.chunjae.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -70,6 +67,16 @@ public class MemberController {
         model.addAttribute("memberList",memberDTOList);
         return "list";
     }
+
+    //멤버 상세 조회(id값으로) , ex) member?id=1
+    @GetMapping
+    public String findById(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        //id값 찾고 model.addAttribute
+        model.addAttribute("member",memberDTO);
+        return "detail";
+    }
+
 
 
 }
