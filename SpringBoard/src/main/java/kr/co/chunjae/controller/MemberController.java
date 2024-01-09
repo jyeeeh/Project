@@ -77,6 +77,11 @@ public class MemberController {
         return "detail";
     }
 
-
+    //삭제하기
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+        memberService.delete(id);
+        return "redirect:/member/";
+    }
 
 }

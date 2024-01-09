@@ -8,7 +8,8 @@
         INSERT INTO member_table(memberEmail, memberPassword, memberName, memberAge, memberMobile)
         VALUES (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberMobile})
     </insert>
-<!--  로그인 -->
+
+    <!-- 로그인-->
     <select id="login" parameterType="member" resultType="member">
         SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
         FROM member_table
@@ -20,10 +21,16 @@
         SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
         FROM member_table
     </select>
+
     <!-- 회원 id로 찾기 -->
     <select id="findById" resultType="member" parameterType="Long">
         SELECT id, memberEmail, memberPassword, memberName, memberAge, memberMobile
         FROM member_table
         WHERE id=#{id}
     </select>
+
+    <!--삭제하기-->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM member_table WHERE id=#{id}
+    </delete>
 </mapper>

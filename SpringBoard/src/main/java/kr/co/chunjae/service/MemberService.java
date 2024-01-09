@@ -38,4 +38,9 @@ public class MemberService {
     public MemberDTO findById(Long id) {
         return memberRepository.findById(id);
     }
+
+    //삭제하기
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
 }

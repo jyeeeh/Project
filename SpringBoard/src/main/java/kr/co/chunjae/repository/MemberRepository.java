@@ -31,4 +31,9 @@ public class MemberRepository {
     public MemberDTO findById(Long id) {
         return sql.selectOne("Member.findById",id);
     }
+
+    //삭제하기
+    public void delete(Long id) {
+        sql.delete("Member.delete",id);
+    }
 }
