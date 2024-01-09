@@ -58,4 +58,14 @@ public class MemberService {
             return false;
         }
     }
+
+    //이메일 중복 확인
+    public String emailCheck(String memberEmail) {
+        MemberDTO memberDTO = memberRepository.findByMemberEmail(memberEmail);
+        if(memberDTO==null){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
 }
