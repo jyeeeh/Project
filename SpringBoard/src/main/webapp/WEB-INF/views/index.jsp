@@ -5,8 +5,11 @@
 </head>
 <body>
 	<h2> Spring Project</h2>
-	<a href="/member/regist">회원가입</a>
-	<a href="/member/login">로그인</a>
-	<a href="/member/">회원목록 조회</a>
+	<!-- 회원 관리 -->
+	<a href="/member/regist">회원가입</a><br>
+	<a href="/member/login">로그인</a><br>
+	<a href="/member/">회원목록 조회</a><br>
+
+
 </body>
 </html>
