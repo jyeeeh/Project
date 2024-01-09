@@ -10,11 +10,11 @@ import java.sql.Timestamp;
 @Setter
 @ToString
 public class BoardDTO {
-    private Long id;
-    private String boardWriter;
-    private String boardPass;
-    private String boardTitle;
-    private String boardContents;
-    private int boardHits;
-    private Timestamp boardCreatedTime;
+    private Long id;            //board idx
+    private String boardWriter; //작성자
+    private String boardPass;   //비밀번호
+    private String boardTitle;  //제목
+    private String boardContents;//내용
+    private int boardHits;       //조회수
+    private Timestamp boardCreatedTime; //작성일
 }

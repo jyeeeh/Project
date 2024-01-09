@@ -2,6 +2,15 @@
 <html>
 <head>
 	<title>초기화면</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+		  rel="stylesheet"
+		  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+		  crossorigin="anonymous">
+	<style>
+		h2 {
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<h2> Spring Project</h2>
@@ -12,7 +21,7 @@
 
 	<!-- 게시판 -->
 	<a href="/board/regist">글작성</a><br>
-	<a href="/board">글목록</a>
+	<a href="/board/">글목록</a>
 
 </body>
 </html>

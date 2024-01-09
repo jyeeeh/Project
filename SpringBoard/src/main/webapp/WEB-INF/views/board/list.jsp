@@ -3,27 +3,42 @@
 <html>
 <head>
     <title>게시물 목록</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+    <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
-<table>
-    <tr>
-        <th>id</th>
-        <th>title</th>
-        <th>writer</th>
-        <th>date</th>
-        <th>hits</th>
-    </tr>
-    <c:forEach items="${boardList}" var="board">
+<body class="bg-light">
+<h2> 게시물 목록 </h2>
+<div class="container mt-5">
+    <table class="table">
+        <thead>
         <tr>
-            <td>${board.id}</td>
-            <td>
-                <a href="/board?id=${board.id}">${board.boardTitle}</a>
-            </td>
-            <td>${board.boardWriter}</td>
-            <td>${board.boardCreatedTime}</td>
-            <td>${board.boardHits}</td>
+            <th scope="col">제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
+            <th scope="col">조회수</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach items="${boardList}" var="board">
+            <tr>
+                <td>
+                    <a href="/board?id=${board.id}" class="text-decoration-none">${board.boardTitle}</a>
+                </td>
+                <td>${board.boardWriter}</td>
+                <td>${board.boardCreatedTime}</td>
+                <td>${board.boardHits}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
